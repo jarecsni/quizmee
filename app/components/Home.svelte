@@ -1,5 +1,5 @@
 <page>
-    <actionBar title="Home" />
+    <actionBar title="Quizmee" />
     <gridLayout>
         <label class="info">
             <formattedString>
@@ -7,11 +7,22 @@
                 <span text=" {message}" />
             </formattedString>
         </label>
+        <button text="About" on:tap="{onAboutButtonTap}" />
     </gridLayout>
 </page>
 
 <script lang="ts">
-    let message: string = "Blank Svelte Native App"
+    import { navigate } from 'svelte-native';
+    import About from '~/pages/About.svelte';
+
+    let message: string = "Blank Svelte Native App";
+
+    function onAboutButtonTap() {
+        navigate({
+            page: About,
+            props: { }
+        })
+    }
 </script>
 
 <style>
